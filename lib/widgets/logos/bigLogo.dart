@@ -8,7 +8,7 @@ class BigLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        width: 300,
+        width: 250,
         child: Image.asset("assets/colorLogo.png"),
       ),
     );
