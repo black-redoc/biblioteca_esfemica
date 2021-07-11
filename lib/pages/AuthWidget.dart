@@ -1,4 +1,7 @@
+import 'dart:io' show Platform;
+
 import 'package:biblioteca_esfemica/widgets/buttons/linkButton.dart';
+import 'package:biblioteca_esfemica/widgets/buttons/roundedBlackButton.dart';
 import 'package:biblioteca_esfemica/widgets/buttons/roundedOutlineRedButton.dart';
 import 'package:biblioteca_esfemica/widgets/buttons/roundedRedButton.dart';
 import 'package:biblioteca_esfemica/widgets/formfields/roundedField.dart';
@@ -31,7 +34,7 @@ class _AuthWidgetState extends State<AuthWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               BigLogo(),
-              SizedBox(height: 20),
+              SizedBox(height: 14),
               Column(
                 children: <Widget>[
                   RoundedField(
@@ -81,6 +84,7 @@ class _AuthWidgetState extends State<AuthWidget> {
                     child: Image.asset("assets/googleIcon.png"),
                     onPressed: _googleSignIn
                   ),
+                  _appleIDLogin()
                 ]
               )
             ]
@@ -89,6 +93,16 @@ class _AuthWidgetState extends State<AuthWidget> {
       )
     );
   }
+
+  Widget _appleIDLogin() => Platform.isIOS
+    ? RoundedBlackButton(
+      child: Container(
+        width: 50,
+        child: Image.asset("assets/appleID.png")
+      ),
+      onPressed: _appleIDSignIn
+    )
+    : Container();
 
   void _initVisibilityPasswordIcon() {
     suffix = IconButton(
@@ -105,6 +119,10 @@ class _AuthWidgetState extends State<AuthWidget> {
         });
       }
     );
+  }
+
+  void _appleIDSignIn() {
+
   }
 
   void _googleSignIn() {
