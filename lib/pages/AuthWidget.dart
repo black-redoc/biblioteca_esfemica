@@ -36,7 +36,7 @@ class _AuthWidgetState extends State<AuthWidget> {
                 children: <Widget>[
                   RoundedField(
                     controller: userController,
-                    labelText: "usuaria"
+                    labelText: "correo"
                   ),
                   RoundedField(
                     controller: passwordController,
@@ -120,6 +120,6 @@ class _AuthWidgetState extends State<AuthWidget> {
   }
 
   void _navigateSignUp() {
-    
+
   }
 }
