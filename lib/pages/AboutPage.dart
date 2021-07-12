@@ -1,6 +1,7 @@
 import 'package:biblioteca_esfemica/widgets/texts/paragraph.dart';
 import 'package:biblioteca_esfemica/widgets/titlebar/purpleTitleBar.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 
@@ -34,26 +35,26 @@ class AboutPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     _linkIconButton(
-                      icon: Icons.location_pin,
-                      onPressed: () { }
+                      icon: FontAwesomeIcons.mapMarkerAlt,
+                      onPressed: _redirectGoogleMaps
                     ),
                     _linkIconButton(
-                      icon: Icons.facebook_rounded, 
-                      onPressed: (){ }
+                      icon: FontAwesomeIcons.facebook, 
+                      onPressed: _redirectFacebook
                     ),
                     _linkIconButton(
-                      icon: Icons.facebook_rounded, 
-                      onPressed: (){ }
+                      icon: FontAwesomeIcons.twitter,
+                      onPressed: _redirectTwitter
                     ),
                     _linkIconButton(
-                      icon: Icons.facebook_rounded, 
-                      onPressed: (){ }
+                      icon: FontAwesomeIcons.instagram, 
+                      onPressed: _redirectInstagram
                     ),
                     Padding(
                       padding: EdgeInsets.only(right: 20),
                       child: _linkIconButton(
-                        icon: Icons.facebook_rounded, 
-                        onPressed: (){ }
+                        icon: FontAwesomeIcons.whatsapp, 
+                        onPressed: _redirectWhatsapp
                       ),
                     ),
                   ],
@@ -71,12 +72,28 @@ class AboutPage extends StatelessWidget {
     Function()? onPressed,
   }) {
     return IconButton(
-      icon: Icon(
+      icon: FaIcon(
         icon!,
         size: 50,
         color: Color(0xFFEC2A44)
       ),
       onPressed: onPressed,
     );
+  }
+
+  void _redirectGoogleMaps() {
+
+  }
+  void _redirectFacebook() {
+    
+  }
+  void _redirectTwitter() {
+    
+  }
+  void _redirectInstagram() {
+    
+  }
+  void _redirectWhatsapp() {
+    
   }
 }
