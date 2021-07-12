@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       debugShowCheckedModeBanner: false,
       routes: AppRouter.router,
-      initialRoute: "/signUp",
+      initialRoute: "/about",
     );
   }
 }
