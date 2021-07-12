@@ -8,15 +8,15 @@ import 'package:biblioteca_esfemica/widgets/formfields/roundedField.dart';
 import 'package:biblioteca_esfemica/widgets/logos/bigLogo.dart';
 import 'package:flutter/material.dart';
 
-class AuthWidget extends StatefulWidget {
+class AuthPage extends StatefulWidget {
 
-  const AuthWidget({Key? key}) : super(key: key);
+  const AuthPage({Key? key}) : super(key: key);
 
   @override
-  _AuthWidgetState createState() => _AuthWidgetState();
+  _AuthPageState createState() => _AuthPageState();
 }
 
-class _AuthWidgetState extends State<AuthWidget> {
+class _AuthPageState extends State<AuthPage> {
   TextEditingController userController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   Icon visibility = Icon(Icons.visibility_off_rounded);
