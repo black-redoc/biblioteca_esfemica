@@ -123,7 +123,7 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   void _navigateToSignIn() {
-
+    Navigator.of(context).pushNamed("/auth");
   }
 
   void _signUp() {

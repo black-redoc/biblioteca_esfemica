@@ -138,6 +138,6 @@ class _AuthPageState extends State<AuthPage> {
   }
 
   void _navigateSignUp() {
-
+    Navigator.of(context).pushNamed("/signUp");
   }
 }
