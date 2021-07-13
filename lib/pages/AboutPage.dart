@@ -1,3 +1,4 @@
+import 'package:biblioteca_esfemica/widgets/texts/mediumText.dart';
 import 'package:biblioteca_esfemica/widgets/texts/paragraph.dart';
 import 'package:biblioteca_esfemica/widgets/titlebar/purpleTitleBar.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +17,8 @@ class AboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: PurpeTitleBar(
         title: "Nosotras",
@@ -29,7 +32,7 @@ class AboutPage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: 10,
-                  vertical: 10
+                  vertical: 20
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -59,13 +62,31 @@ class AboutPage extends StatelessWidget {
                     ),
                   ],
                 ),
-              )
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 50),
+                child: Column(
+                  children: [
+                    MediumText(
+                      text: "Nuestro Equipo"
+                    ),
+                    Container(
+                      width: size.width / 5,
+                      child: Divider(
+                        color: Colors.blueGrey,
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         )
       )
     );
   }
+
+  
 
   Widget _linkIconButton({
     IconData? icon,

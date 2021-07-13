@@ -6,6 +6,7 @@ import 'package:biblioteca_esfemica/widgets/buttons/roundedOutlineRedButton.dart
 import 'package:biblioteca_esfemica/widgets/buttons/roundedRedButton.dart';
 import 'package:biblioteca_esfemica/widgets/formfields/roundedField.dart';
 import 'package:biblioteca_esfemica/widgets/logos/bigLogo.dart';
+import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
 import 'package:flutter/material.dart';
 
 class AuthPage extends StatefulWidget {
@@ -64,12 +65,9 @@ class _AuthPageState extends State<AuthPage> {
               Column(
                 children: <Widget>[
                   RoundedRedButton(
-                    child: Text(
-                      'Iniciar sesión',
-                      style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.white
-                      ),
+                    child: SmallText(
+                      text: 'Iniciar sesión',
+                      color: Colors.white
                     ),
                     onPressed: _signIn,
                   ),

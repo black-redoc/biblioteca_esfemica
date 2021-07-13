@@ -1,3 +1,4 @@
+import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
 import 'package:flutter/material.dart';
 
 class PurpeTitleBar extends StatelessWidget {
@@ -30,12 +31,9 @@ class PurpeTitleBar extends StatelessWidget {
                       icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
                       onPressed: (){},
                     ),
-                    Text(
-                      this.title!,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 23
-                      )
+                    SmallText(
+                      text: this.title!,
+                      color: Colors.white,
                     ),
                     Image.asset("assets/whiteLogo.png", width: 40)
                   ]
