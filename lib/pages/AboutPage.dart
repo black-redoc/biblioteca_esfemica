@@ -1,3 +1,4 @@
+import 'package:biblioteca_esfemica/data/aboutDataSource.dart';
 import 'package:biblioteca_esfemica/data/teamDataSource.dart';
 import 'package:biblioteca_esfemica/widgets/texts/mediumText.dart';
 import 'package:biblioteca_esfemica/widgets/texts/paragraph.dart';
@@ -6,15 +7,9 @@ import 'package:biblioteca_esfemica/widgets/titlebar/purpleTitleBar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
-final String content = """ 
-  La Escuela de Estudios Feministas de Cali ESFEMICA es una fundación orientada a la 
-  formación teórica y política, el análisis crítico, la intervención social feminista y 
-  los procesos de empoderamiento para niñas y mujeres en Colombia y el mundo.
-  """.trim().replaceAll("\n", "");
-
 class AboutPage extends StatelessWidget {
   final TeamDataSource teamDataSource = TeamDataSource();
+  final AboutDataSource aboutDataSource = AboutDataSource();
   AboutPage({Key? key}) : super(key: key);
 
   @override
@@ -31,7 +26,7 @@ class AboutPage extends StatelessWidget {
                 children: <Widget>[
                   Image.asset("assets/colorLogo.png", width: 200),
                   SizedBox(height: 30,),
-                  Paragraph(content: content),
+                  Paragraph(content: aboutDataSource.aboutText),
                   Padding(
                     padding: EdgeInsets.symmetric(
                       horizontal: 10,
