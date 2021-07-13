@@ -10,10 +10,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Roboto'
       ),
-      title: 'Material App',
+      title: 'Esfemica Biblioteca',
       debugShowCheckedModeBanner: false,
       routes: AppRouter.router,
-      initialRoute: "/about",
+      initialRoute: "/library",
     );
   }
 }
