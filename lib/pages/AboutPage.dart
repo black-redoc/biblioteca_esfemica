@@ -1,9 +1,10 @@
+import 'package:biblioteca_esfemica/data/teamDataSource.dart';
 import 'package:biblioteca_esfemica/widgets/texts/mediumText.dart';
 import 'package:biblioteca_esfemica/widgets/texts/paragraph.dart';
+import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
 import 'package:biblioteca_esfemica/widgets/titlebar/purpleTitleBar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 
 
 final String content = """ 
@@ -13,7 +14,8 @@ final String content = """
   """.trim().replaceAll("\n", "");
 
 class AboutPage extends StatelessWidget {
-  const AboutPage({Key? key}) : super(key: key);
+  final TeamDataSource teamDataSource = TeamDataSource();
+  AboutPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,71 +24,119 @@ class AboutPage extends StatelessWidget {
     return Scaffold(
       body: PurpeTitleBar(
         title: "Nosotras",
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: 30,),
-              Image.asset("assets/colorLogo.png", width: 200),
-              SizedBox(height: 30,),
-              Paragraph(content: content),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 10,
-                  vertical: 20
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    _linkIconButton(
-                      icon: FontAwesomeIcons.mapMarkerAlt,
-                      onPressed: _redirectGoogleMaps
+        body: Row(
+          children: [
+            Expanded(
+              child: ListView(
+                children: <Widget>[
+                  Image.asset("assets/colorLogo.png", width: 200),
+                  SizedBox(height: 30,),
+                  Paragraph(content: content),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 20
                     ),
-                    _linkIconButton(
-                      icon: FontAwesomeIcons.facebook, 
-                      onPressed: _redirectFacebook
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        _linkIconButton(
+                          icon: FontAwesomeIcons.mapMarkerAlt,
+                          onPressed: _redirectGoogleMaps
+                        ),
+                        _linkIconButton(
+                          icon: FontAwesomeIcons.facebook, 
+                          onPressed: _redirectFacebook
+                        ),
+                        _linkIconButton(
+                          icon: FontAwesomeIcons.twitter,
+                          onPressed: _redirectTwitter
+                        ),
+                        _linkIconButton(
+                          icon: FontAwesomeIcons.instagram, 
+                          onPressed: _redirectInstagram
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 20),
+                          child: _linkIconButton(
+                            icon: FontAwesomeIcons.whatsapp, 
+                            onPressed: _redirectWhatsapp
+                          ),
+                        ),
+                      ],
                     ),
-                    _linkIconButton(
-                      icon: FontAwesomeIcons.twitter,
-                      onPressed: _redirectTwitter
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 50),
+                    child: Column(
+                      children: [
+                        MediumText(
+                          text: "Nuestro Equipo"
+                        ),
+                        Container(
+                          width: size.width / 5,
+                          child: Divider(
+                            color: Colors.blueGrey,
+                          ),
+                        )
+                      ],
                     ),
-                    _linkIconButton(
-                      icon: FontAwesomeIcons.instagram, 
-                      onPressed: _redirectInstagram
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 20),
-                      child: _linkIconButton(
-                        icon: FontAwesomeIcons.whatsapp, 
-                        onPressed: _redirectWhatsapp
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+
+                  Container(
+                    child: _buildTeamListView()
+                  ),
+                  SizedBox(height: 100,)
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 50),
-                child: Column(
-                  children: [
-                    MediumText(
-                      text: "Nuestro Equipo"
-                    ),
-                    Container(
-                      width: size.width / 5,
-                      child: Divider(
-                        color: Colors.blueGrey,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         )
       )
     );
   }
 
   
+  Widget _buildTeamListView() {
+    final teamList = teamDataSource.getTeamList();
+    final List<Widget> widgets = [];
+
+    for (var itemTeam in teamList) {
+      widgets.add(
+        Column(
+          children: <Widget>[
+            CircleAvatar(
+              backgroundImage: AssetImage(itemTeam.imageUrl),
+              radius: 120,
+            ),
+            MediumText(
+              text: itemTeam.completeName,
+            ),
+            MediumText(
+              text: itemTeam.workArea,
+            ),
+            SmallText(
+              text: itemTeam.carrer,
+              color: Colors.grey
+            ),
+            SizedBox(
+              height: 30,
+              width: 300,
+              child: Divider(
+                color: Colors.blueGrey
+              )
+            )
+          ]
+        )
+      );
+    }
+
+    return Column(
+      children: <Widget>[
+        ...widgets
+      ]
+    );
+  }
 
   Widget _linkIconButton({
     IconData? icon,

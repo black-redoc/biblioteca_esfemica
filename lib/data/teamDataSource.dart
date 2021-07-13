@@ -30,7 +30,7 @@ class TeamDataSource {
         "Grajales",
         "Directora Administrativa",
         "Economista",
-        "assets/admion.jpg",
+        "assets/admin.jpg",
       ),
     ];
   }

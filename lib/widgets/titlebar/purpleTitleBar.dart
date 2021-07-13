@@ -46,6 +46,7 @@ class PurpeTitleBar extends StatelessWidget {
             child: Container(
               width: size.width,
               height: size.height,
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(50)
