@@ -1,11 +1,12 @@
-import 'package:biblioteca_esfemica/widgets/formfields/roundedSearchField.dart';
 import 'package:flutter/material.dart';
 
 class PurpleSearchBar extends StatelessWidget {
   final Widget? row;
+  final Widget? searchField;
   PurpleSearchBar({
     Key? key,
-    this.row
+    this.row,
+    this.searchField
   }) : super(key: key);
 
   @override
@@ -27,7 +28,7 @@ class PurpleSearchBar extends StatelessWidget {
           children: <Widget>[
               Stack(
                 children: [
-                  RoundedSearchField(),
+                  this.searchField!,
                   Positioned(
                     right: 10,
                     top: 25,
