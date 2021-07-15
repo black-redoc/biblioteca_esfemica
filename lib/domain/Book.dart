@@ -1,11 +1,13 @@
 class Book {
-  final String? name;
+  final String? title;
   final String? author;
+  final String? image;
   final DateTime? releaseDate;
 
   Book({
-    this.name,
+    this.title,
     this.author,
+    this.image,
     this.releaseDate
   });
 }
