@@ -6,7 +6,7 @@ class PurpleSearchBar extends StatelessWidget {
   PurpleSearchBar({
     Key? key,
     this.row,
-    this.searchField
+    this.searchField,
   }) : super(key: key);
 
   @override

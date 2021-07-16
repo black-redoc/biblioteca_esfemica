@@ -1,11 +1,11 @@
 import 'package:biblioteca_esfemica/domain/Book.dart';
 
 
-class BookCarrousel {
+class BookCarousel {
   final String? genre;
   final List<Book>? books;
 
-  BookCarrousel({
+  BookCarousel({
     this.genre,
     this.books
   });
