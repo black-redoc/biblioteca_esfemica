@@ -37,8 +37,8 @@ class _LibraryPageState extends State<LibraryPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
+    return Container(
+      child: Column(
         children: [
           PurpleSearchBar(
             searchField: RoundedSearchField(
@@ -96,7 +96,6 @@ class _LibraryPageState extends State<LibraryPage> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomBar(),
     );
   }
 

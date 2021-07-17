@@ -17,8 +17,8 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
-    return Scaffold(
-      body: PurpeTitleBar(
+    return Container(
+      child: PurpeTitleBar(
         title: "Nosotras",
         body: Row(
           children: [
@@ -89,7 +89,6 @@ class AboutPage extends StatelessWidget {
           ],
         )
       ),
-      bottomNavigationBar: BottomBar(),
     );
   }
 
