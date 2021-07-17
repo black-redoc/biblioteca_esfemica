@@ -20,13 +20,13 @@ class BottomBarPage extends StatelessWidget {
         onTap: this.onTap!,
         items: <SalomonBottomBarItem>[
           SalomonBottomBarItem(
-              icon: FaIcon(FontAwesomeIcons.userTag),
+              icon: FaIcon(FontAwesomeIcons.users),
               title: SmallText(text: "Nosotras")),
           SalomonBottomBarItem(
               icon: FaIcon(FontAwesomeIcons.book),
               title: SmallText(text: "Biblioteca")),
           SalomonBottomBarItem(
-              icon: FaIcon(FontAwesomeIcons.userAlt),
+              icon: FaIcon(FontAwesomeIcons.solidUserCircle),
               title: SmallText(text: "Perfil")),
           SalomonBottomBarItem(
               icon: FaIcon(FontAwesomeIcons.calendarAlt),
