@@ -1,9 +1,14 @@
-abstract class PageEvent {}
-class PageLibrary extends PageEvent {
+abstract class PageEvent {
   final int pageNumber;
-  PageLibrary(this.pageNumber);
+  PageEvent(this.pageNumber);
+}
+class PageLibrary extends PageEvent {
+  PageLibrary(int pageNumber) : super(pageNumber);
 }
 class PageAbout extends PageEvent {
-  final int pageNumber;
-  PageAbout(this.pageNumber);
+  PageAbout(int pageNumber) : super(pageNumber);
+}
+
+class PageProfile extends PageEvent {
+  PageProfile(int pageNumber) : super(pageNumber);
 }

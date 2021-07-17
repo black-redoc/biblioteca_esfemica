@@ -2,6 +2,7 @@ import 'package:biblioteca_esfemica/bloc/page/pageBloc.dart';
 import 'package:biblioteca_esfemica/bloc/page/pageEvent.dart';
 import 'package:biblioteca_esfemica/pages/AboutPage.dart';
 import 'package:biblioteca_esfemica/pages/LibraryPage.dart';
+import 'package:biblioteca_esfemica/pages/ProfilePage.dart';
 import 'package:biblioteca_esfemica/widgets/bottomBar/BottomBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,6 +42,10 @@ class _HomePageState extends State<HomePage> {
       case 1:
         bodyPage = LibraryPage();
         bloc.add(PageLibrary(1));
+        break;
+      case 2:
+        bodyPage = ProfilePage();
+        bloc.add(PageProfile(2));
         break;
       default:
         bodyPage = AboutPage();
