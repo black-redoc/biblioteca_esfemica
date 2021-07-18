@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class MediumText extends StatelessWidget {
   final String? text;
   final Color? color;
+  final FontWeight? fontWeight;
   const MediumText({
     Key? key,
     @required this.text,
-    this.color = Colors.black
+    this.color = Colors.black,
+    this.fontWeight = FontWeight.w400
   }) : super(key: key);
 
   @override
@@ -16,7 +18,8 @@ class MediumText extends StatelessWidget {
         this.text!,
         style: TextStyle(
           color: this.color,
-          fontSize: 25
+          fontSize: 25,
+          fontWeight: this.fontWeight
         )
       ),
     );

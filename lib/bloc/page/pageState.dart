@@ -1,4 +1,4 @@
 class PageState {
   int pageNumber;
-  PageState({this.pageNumber = 1});
+  PageState({this.pageNumber = 0});
 }
