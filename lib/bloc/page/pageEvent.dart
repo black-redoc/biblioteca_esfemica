@@ -12,3 +12,8 @@ class PageAbout extends PageEvent {
 class PageProfile extends PageEvent {
   PageProfile(int pageNumber) : super(pageNumber);
 }
+
+class PageEvents extends PageEvent {
+  PageEvents(int pageNumber) : super(pageNumber);
+}
+

@@ -1,6 +1,7 @@
 import 'package:biblioteca_esfemica/bloc/page/pageBloc.dart';
 import 'package:biblioteca_esfemica/bloc/page/pageEvent.dart';
 import 'package:biblioteca_esfemica/pages/AboutPage.dart';
+import 'package:biblioteca_esfemica/pages/EventsPage.dart';
 import 'package:biblioteca_esfemica/pages/LibraryPage.dart';
 import 'package:biblioteca_esfemica/pages/ProfilePage.dart';
 import 'package:biblioteca_esfemica/widgets/bottomBar/BottomBar.dart';
@@ -46,6 +47,10 @@ class _HomePageState extends State<HomePage> {
       case 2:
         bodyPage = ProfilePage();
         bloc.add(PageProfile(2));
+        break;
+      case 3:
+        bodyPage = EventsPage();
+        bloc.add(PageEvents(3));
         break;
       default:
         bodyPage = AboutPage();

@@ -15,6 +15,10 @@ class PageBloc extends Bloc<PageEvent, PageState>{
         yield PageState(pageNumber: 1);
     } else if (event is PageProfile) {
       yield PageState(pageNumber: 2);
+    } else if (event is PageEvents) {
+      yield PageState(pageNumber: 3);
+    } else {
+      yield PageState(pageNumber: 0);
     }
   }
 }
