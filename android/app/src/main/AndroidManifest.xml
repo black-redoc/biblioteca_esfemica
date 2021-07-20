@@ -2,7 +2,7 @@
     package="com.example.biblioteca_esfemica">
    <application
         android:label="biblioteca_esfemica"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher_esfemica_round">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
