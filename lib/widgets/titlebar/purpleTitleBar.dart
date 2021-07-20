@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 class PurpeTitleBar extends StatelessWidget {
   final String? title;
   final Widget? body;
+  final Widget? leftButton;
   const PurpeTitleBar({
     Key? key,
     @required this.title,
+    this.leftButton,
     this.body
   }) : super(key: key);
 
@@ -27,10 +29,7 @@ class PurpeTitleBar extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    IconButton(
-                      icon: Icon(Icons.arrow_back_ios_new, color: Colors.white),
-                      onPressed: (){},
-                    ),
+                    this.leftButton ?? Container(width: 50),
                     SmallText(
                       text: this.title!,
                       color: Colors.white,

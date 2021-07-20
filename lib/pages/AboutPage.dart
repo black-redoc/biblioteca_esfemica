@@ -24,6 +24,8 @@ class AboutPage extends StatelessWidget {
           children: [
             Expanded(
               child: ListView(
+                shrinkWrap: true,
+                padding: EdgeInsets.zero,
                 children: <Widget>[
                   Image.asset("assets/colorLogo.png", width: 200),
                   SizedBox(height: 30,),
@@ -82,7 +84,7 @@ class AboutPage extends StatelessWidget {
                   Container(
                     child: _buildTeamListView()
                   ),
-                  SizedBox(height: 100,)
+                  SizedBox(height: 200)
                 ],
               ),
             ),
