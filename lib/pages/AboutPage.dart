@@ -18,7 +18,7 @@ class AboutPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      child: PurpeTitleBar(
+      child: PurpleTitleBar(
         title: "Nosotras",
         body: Row(
           children: [
@@ -84,7 +84,7 @@ class AboutPage extends StatelessWidget {
                   Container(
                     child: _buildTeamListView()
                   ),
-                  SizedBox(height: 200)
+                  SizedBox(height: 20)
                 ],
               ),
             ),

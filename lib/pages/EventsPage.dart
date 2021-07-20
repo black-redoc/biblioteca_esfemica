@@ -1,4 +1,5 @@
 import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
+import 'package:biblioteca_esfemica/widgets/titlebar/purpleTitleBar.dart';
 import 'package:flutter/material.dart';
 
 class EventsPage extends StatelessWidget {
@@ -6,9 +7,21 @@ class EventsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: SmallText(text: "Programacion")
+    return PurpleTitleBar(
+      title: "Programación",
+      body: Row(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              padding: EdgeInsets.zero,
+              shrinkWrap: true,
+              itemCount: 100,
+              itemBuilder:(context, index) {
+                return Text("Hola pepito $index");
+              }
+            ),
+          ),
+        ],
       ),
     );
   }

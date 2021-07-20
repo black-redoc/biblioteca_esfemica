@@ -1,11 +1,11 @@
 import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
 import 'package:flutter/material.dart';
 
-class PurpeTitleBar extends StatelessWidget {
+class PurpleTitleBar extends StatelessWidget {
   final String? title;
   final Widget? body;
   final Widget? leftButton;
-  const PurpeTitleBar({
+  const PurpleTitleBar({
     Key? key,
     @required this.title,
     this.leftButton,
@@ -44,7 +44,7 @@ class PurpeTitleBar extends StatelessWidget {
             top:110,
             child: Container(
               width: size.width,
-              height: size.height,
+              height: size.height * 0.8,
               padding: EdgeInsets.symmetric(vertical: 10, horizontal: 30),
               decoration: BoxDecoration(
                 color: Colors.white,
