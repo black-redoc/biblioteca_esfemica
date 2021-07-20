@@ -1,3 +1,4 @@
+import 'package:biblioteca_esfemica/data/bookDataSource.dart';
 import 'package:biblioteca_esfemica/usecases/conversor.dart';
 import 'package:biblioteca_esfemica/widgets/bookList/bookListItem.dart';
 import 'package:biblioteca_esfemica/widgets/buttons/circularButton.dart';
@@ -20,9 +21,11 @@ class _ProfilePageState extends State<ProfilePage>
   Animation<double>? _degTwoTranslationAnimation;
   Animation<double>? _rotationAnimation;
   Widget? _menuIcon;
+  BookDataSource? _bookDataSource;
 
   @override
   void initState() {
+    _bookDataSource = BookDataSource();
     _menuIcon = FaIcon(FontAwesomeIcons.bars);
     _animationController = AnimationController(
       vsync: this,
@@ -139,6 +142,8 @@ class _ProfilePageState extends State<ProfilePage>
   }
 
   Widget _body() {
+    final bookProfileStatusList = _bookDataSource!.getBookProfileStatus(0);
+
     return Positioned(
       top: 440,
       right: 20,
@@ -148,16 +153,19 @@ class _ProfilePageState extends State<ProfilePage>
         child: ListView.builder(
           padding: EdgeInsets.zero,
           shrinkWrap: true,
-          itemCount: 33,
-          itemBuilder: (_,i) => Padding(
-            padding: const EdgeInsets.only(bottom: 10.0),
-            child: BookListItem(
-              imagePath: "https://images-na.ssl-images-amazon.com/images/I/819ijTWp9JL.jpg",
-              author: "Geroge Orwell",
-              title: "1984",
-              status: "Prestado"
-            )
-          )
+          itemCount: bookProfileStatusList.length,
+          itemBuilder: (_,i) {
+            final item = bookProfileStatusList[i];
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 10.0),
+              child: BookListItem(
+                imagePath: item.image,
+                author: item.author,
+                title: item.title,
+                status: item.status
+              )
+            );
+          }
         )
       )
     );

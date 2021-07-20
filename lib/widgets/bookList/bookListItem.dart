@@ -1,3 +1,4 @@
+import 'package:biblioteca_esfemica/usecases/stringLimiter.dart';
 import 'package:biblioteca_esfemica/widgets/bookList/bookStatus.dart';
 import 'package:biblioteca_esfemica/widgets/bookList/circleBookImage.dart';
 import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
@@ -18,25 +19,30 @@ class BookListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context)  => Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        CircleBookImage(
-          imagePath: this.imagePath,
-        ),
-      Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          SmallText(
-            text: "$title",
-            fontWeight: FontWeight.w500
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: <Widget>[
+      Row(
+        children: [
+          CircleBookImage(
+            imagePath: this.imagePath,
           ),
-          SmallText(
-            text: "$author",
-            fontWeight: FontWeight.w500,
-            color: Colors.grey
+          SizedBox(width: 15),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SmallText(
+                text: "${title?.limitquarter()}",
+                fontWeight: FontWeight.w500
+              ),
+              SmallText(
+                text: "${author?.limitquarter()}",
+                fontWeight: FontWeight.w500,
+                color: Colors.grey
+              )
+            ]
           )
-        ]
+        ],
       ),
       Column(
         mainAxisAlignment: MainAxisAlignment.center,

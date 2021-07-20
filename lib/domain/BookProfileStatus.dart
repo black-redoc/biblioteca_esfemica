@@ -5,11 +5,13 @@ class BookProfileStatus {
   final String? author;
   final String? image;
   final Profile? profile;
+  final String? status;
 
   BookProfileStatus({
     this.title,
     this.author,
     this.image,
-    this.profile
+    this.profile,
+    this.status
   });
 }
