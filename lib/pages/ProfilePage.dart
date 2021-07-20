@@ -1,4 +1,3 @@
-import 'package:biblioteca_esfemica/widgets/texts/mediumText.dart';
 import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
