@@ -1,18 +1,58 @@
+import 'package:biblioteca_esfemica/usecases/conversor.dart';
+import 'package:biblioteca_esfemica/widgets/buttons/circularButton.dart';
 import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class ProfilePage extends StatelessWidget {
+
+class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
+
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage>
+  with SingleTickerProviderStateMixin {
+  AnimationController? _animationController;
+  Animation<double>? _degOneTranslationAnimation;
+  Animation<double>? _degTwoTranslationAnimation;
+  Animation<double>? _rotationAnimation;
+  Widget? _menuIcon;
+
+  @override
+  void initState() {
+    _menuIcon = FaIcon(FontAwesomeIcons.bars);
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 350)
+    );
+    // _degOneTranslationAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(_animationController!);
+    _degOneTranslationAnimation = TweenSequence([
+      TweenSequenceItem<double>(tween: Tween<double>(begin: 0.0, end: 1.2), weight: 75.0),
+      TweenSequenceItem<double>(tween: Tween<double>(begin: 1.2, end: 1.0), weight: 25.0),
+    ]).animate(_animationController!);
+
+    _degTwoTranslationAnimation = TweenSequence(<TweenSequenceItem<double>>[
+      TweenSequenceItem<double>(tween: Tween<double>(begin: 0.0, end: 1.4), weight: 55.0),
+      TweenSequenceItem<double>(tween: Tween<double>(begin: 1.4, end: 1.0), weight: 45.0),
+    ]).animate(_animationController!);
+
+    _rotationAnimation = Tween<double>(begin: 180.0, end: 0.0).animate(
+      CurvedAnimation(parent: _animationController!, curve: Curves.easeOut)
+    );
+    super.initState();
+    _animationController!.addListener(() {
+      setState(() {
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-      floatingActionButton: IconButton(
-        icon: FaIcon(FontAwesomeIcons.bars),
-        onPressed: () {},
-      ),
+      floatingActionButton: _floatingActionButtons(),
       body: FractionallySizedBox(
         heightFactor: 1,
         widthFactor: 1,
@@ -26,6 +66,75 @@ class ProfilePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget _floatingActionButtons() {
+    return Stack(
+      children: <Widget>[
+        Positioned(
+          top: 10,
+          right: 0,
+          child: Stack(
+            children: <Widget>[
+              Transform.translate(
+                offset: Offset.fromDirection(
+                 85.0.toRadians(), _degOneTranslationAnimation!.value * 80
+                ),
+                child: Transform(
+                  transform: Matrix4
+                  .rotationZ(_rotationAnimation!.value.toRadians())
+                  ..scale(_degOneTranslationAnimation!.value),
+                  alignment: Alignment.center,
+                  child: CircularButton(
+                    icon: FaIcon(FontAwesomeIcons.edit, color: Colors.white),
+                    onPressed: () { },
+                    color: Color(0xFF1e272e),
+                    size: 50
+                  ),
+                ),
+              ),
+              Transform.translate(
+                offset:Offset.fromDirection(
+                  87.0.toRadians(), _degTwoTranslationAnimation!.value * 150
+                ),
+                child: Transform(
+                  transform: Matrix4
+                  .rotationZ(_rotationAnimation!.value.toRadians())
+                  ..scale(_degTwoTranslationAnimation!.value),
+                  alignment: Alignment.center,
+                  child: CircularButton(
+                    icon: FaIcon(FontAwesomeIcons.cog, color: Colors.white),
+                    onPressed: () { },
+                    color: Color(0xFF1e272e),
+                    size: 50
+                  ),
+                ),
+              ),
+              Transform(
+                transform: Matrix4.rotationZ(_rotationAnimation!.value.toRadians()),
+                alignment: Alignment.center,
+                child: CircularButton(
+                  icon: _menuIcon,
+                  onPressed: _menuOnPressed,
+                  color: Colors.white,
+                  size: 60,
+                ),
+              )
+            ]
+          )
+        )
+      ]
+    );
+  }
+
+  void _menuOnPressed() {
+    if (_animationController!.isCompleted) {
+      _animationController!.reverse();
+      _menuIcon = FaIcon(FontAwesomeIcons.bars);
+    } else {
+      _animationController!.forward();
+      _menuIcon = FaIcon(FontAwesomeIcons.times);
+    }
   }
 
   Widget _body() {
