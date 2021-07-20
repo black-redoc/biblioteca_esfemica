@@ -1,4 +1,5 @@
 import 'package:biblioteca_esfemica/usecases/conversor.dart';
+import 'package:biblioteca_esfemica/widgets/bookList/bookListItem.dart';
 import 'package:biblioteca_esfemica/widgets/buttons/circularButton.dart';
 import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
 import 'package:flutter/material.dart';
@@ -140,15 +141,23 @@ class _ProfilePageState extends State<ProfilePage>
   Widget _body() {
     return Positioned(
       top: 440,
-      right: 40,
-      left: 40,
+      right: 20,
+      left: 20,
       bottom: 0,
       child: Container(
         child: ListView.builder(
           padding: EdgeInsets.zero,
           shrinkWrap: true,
           itemCount: 33,
-          itemBuilder: (_,i) => Text("Test $i")
+          itemBuilder: (_,i) => Padding(
+            padding: const EdgeInsets.only(bottom: 10.0),
+            child: BookListItem(
+              imagePath: "https://images-na.ssl-images-amazon.com/images/I/819ijTWp9JL.jpg",
+              author: "Geroge Orwell",
+              title: "1984",
+              status: "Prestado"
+            )
+          )
         )
       )
     );
