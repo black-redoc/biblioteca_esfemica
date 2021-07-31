@@ -1,5 +1,4 @@
 import 'package:biblioteca_esfemica/data/bookDataSource.dart';
-import 'package:biblioteca_esfemica/widgets/bottomBar/BottomBar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:biblioteca_esfemica/widgets/formfields/roundedSearchField.dart';
 import 'package:biblioteca_esfemica/widgets/texts/mediumText.dart';

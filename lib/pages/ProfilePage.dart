@@ -78,67 +78,102 @@ class _ProfilePageState extends State<ProfilePage>
         Positioned(
           top: 10,
           right: 0,
-          child: Stack(
-            children: <Widget>[
-              Transform.translate(
-                offset: Offset.fromDirection(
-                 85.0.toRadians(), _degOneTranslationAnimation!.value * 80
-                ),
-                child: Transform(
-                  transform: Matrix4
-                  .rotationZ(_rotationAnimation!.value.toRadians())
-                  ..scale(_degOneTranslationAnimation!.value),
-                  alignment: Alignment.center,
-                  child: CircularButton(
-                    icon: FaIcon(FontAwesomeIcons.edit, color: Colors.white),
-                    onPressed: () { },
-                    color: Color(0xFF1e272e),
-                    size: 50
+          child: Container(
+            height: 200,
+            width: 80,
+            child: Stack(
+              fit: StackFit.passthrough,
+              children: <Widget>[
+                _editProfileButton(),
+                _settigsProfileButton(),
+
+                Positioned(
+                  top:10,
+                  right: 0,
+                  child: Transform(
+                    transform: Matrix4.rotationZ(_rotationAnimation!.value.toRadians()),
+                    alignment: Alignment.center,
+                    child: CircularButton(
+                      icon: _menuIcon,
+                      onPressed: _menuOnPressed,
+                      color: Colors.white,
+                      size: 60,
+                    ),
                   ),
                 ),
-              ),
-              Transform.translate(
-                offset:Offset.fromDirection(
-                  87.0.toRadians(), _degTwoTranslationAnimation!.value * 150
-                ),
-                child: Transform(
-                  transform: Matrix4
-                  .rotationZ(_rotationAnimation!.value.toRadians())
-                  ..scale(_degTwoTranslationAnimation!.value),
-                  alignment: Alignment.center,
-                  child: CircularButton(
-                    icon: FaIcon(FontAwesomeIcons.cog, color: Colors.white),
-                    onPressed: () { },
-                    color: Color(0xFF1e272e),
-                    size: 50
-                  ),
-                ),
-              ),
-              Transform(
-                transform: Matrix4.rotationZ(_rotationAnimation!.value.toRadians()),
-                alignment: Alignment.center,
-                child: CircularButton(
-                  icon: _menuIcon,
-                  onPressed: _menuOnPressed,
-                  color: Colors.white,
-                  size: 60,
-                ),
-              )
-            ]
+              ]
+            ),
           )
         )
       ]
     );
   }
 
+  void _onEditButtonPressed() {
+    Navigator.of(context).pushNamed("/editProfile");
+  }
+
+  void _onSettingsButtonPressed() {
+
+  }
+
+  Widget _settigsProfileButton() {
+    return Positioned(
+      top: 10,
+      right: 5,
+      child: Transform.translate(
+        offset:Offset.fromDirection(
+          87.0.toRadians(), _degTwoTranslationAnimation!.value * 150
+        ),
+        child: Transform(
+          transform: Matrix4
+          .rotationZ(_rotationAnimation!.value.toRadians())
+          ..scale(_degTwoTranslationAnimation!.value),
+          alignment: Alignment.center,
+          child: CircularButton(
+            icon: FaIcon(FontAwesomeIcons.cog, color: Colors.white),
+            onPressed: _onSettingsButtonPressed,
+            color: Color(0xFF1e272e),
+            size: 50
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _editProfileButton() { 
+    return Positioned(
+      top: 10,
+      right: 5,
+      child: Transform.translate(
+        offset: Offset.fromDirection(
+          85.0.toRadians(), _degOneTranslationAnimation!.value * 80
+        ),
+        child: Transform(
+          transform: Matrix4
+          .rotationZ(_rotationAnimation!.value.toRadians())
+          ..scale(_degOneTranslationAnimation!.value),
+          alignment: Alignment.center,
+          child: CircularButton(
+            icon: FaIcon(FontAwesomeIcons.edit, color: Colors.white),
+            onPressed: _onEditButtonPressed,
+            color: Color(0xFF1e272e),
+            size: 50
+          ),
+        ),
+      ),
+    );
+  }
   void _menuOnPressed() {
-    if (_animationController!.isCompleted) {
-      _animationController!.reverse();
-      _menuIcon = FaIcon(FontAwesomeIcons.bars);
-    } else {
-      _animationController!.forward();
-      _menuIcon = FaIcon(FontAwesomeIcons.times);
-    }
+    setState(() {
+      if (_animationController!.isCompleted) {
+        _animationController!.reverse();
+        _menuIcon = FaIcon(FontAwesomeIcons.bars);
+      } else {
+        _animationController!.forward();
+        _menuIcon = FaIcon(FontAwesomeIcons.times);
+      }
+    });
   }
 
   Widget _body() {

@@ -1,6 +1,5 @@
 import 'package:biblioteca_esfemica/data/aboutDataSource.dart';
 import 'package:biblioteca_esfemica/data/teamDataSource.dart';
-import 'package:biblioteca_esfemica/widgets/bottomBar/BottomBar.dart';
 import 'package:biblioteca_esfemica/widgets/texts/mediumText.dart';
 import 'package:biblioteca_esfemica/widgets/texts/paragraph.dart';
 import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';

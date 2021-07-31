@@ -1,8 +1,5 @@
-import 'package:biblioteca_esfemica/bloc/page/pageBloc.dart';
-import 'package:biblioteca_esfemica/bloc/page/pageEvent.dart';
 import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
