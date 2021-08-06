@@ -1,6 +1,7 @@
 import 'package:biblioteca_esfemica/widgets/clippers/arcClipper.dart';
 import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class RedArchHeader extends StatelessWidget {
   final String? title;
@@ -28,14 +29,22 @@ class RedArchHeader extends StatelessWidget {
           ),
 
           Positioned(
-            top: 80,
+            top: 60,
             right: 0,
             left: 0,
-            child: Center(
-              child: SmallText(
-                text: this.title ?? "Tatiana Sofia Salazar",
-                color: Colors.white,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                IconButton(
+                  icon: FaIcon(FontAwesomeIcons.arrowLeft, color: Colors.white),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+                SmallText(
+                  text: this.title ?? "Tatiana Sofia Salazar",
+                  color: Colors.white
+                ),
+                Image.asset("assets/whiteLogo.png", width: 50),
+              ],
             ),
           ),
 

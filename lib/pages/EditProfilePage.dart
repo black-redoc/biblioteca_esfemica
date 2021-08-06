@@ -38,20 +38,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          IconButton(
-            icon: FaIcon(FontAwesomeIcons.arrowLeft, color: Colors.white),
-            onPressed: () => _backPage(context),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 10.0, top: 10.0),
-            child: Image.asset("assets/whiteLogo.png", width: 50),
-          )
-        ],
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
+      // floatingActionButton: Row(
+      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //   children: <Widget>[
+      //     IconButton(
+      //       icon: FaIcon(FontAwesomeIcons.arrowLeft, color: Colors.white),
+      //       onPressed: () => _backPage(context),
+      //     ),
+      //     Padding(
+      //       padding: const EdgeInsets.only(right: 10.0, top: 10.0),
+      //       child: Image.asset("assets/whiteLogo.png", width: 50),
+      //     )
+      //   ],
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
       body: Column(
         children: <Widget>[
           RedArchHeader(
