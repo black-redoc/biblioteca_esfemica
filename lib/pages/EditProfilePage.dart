@@ -1,5 +1,4 @@
 import 'package:biblioteca_esfemica/widgets/texts/mediumText.dart';
-import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
 import 'package:biblioteca_esfemica/widgets/titlebar/redArcHeader.dart';
 import 'package:flutter/material.dart';
 
