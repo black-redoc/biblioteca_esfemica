@@ -14,6 +14,8 @@ class EditProfilePage extends StatefulWidget {
 
 class _EditProfilePageState extends State<EditProfilePage> {
   List<String>? interestList;
+  List<String>? dropdownList;
+  String? currentValue; //  ="Drama";
 
   @override
   void initState() {
@@ -32,42 +34,41 @@ class _EditProfilePageState extends State<EditProfilePage> {
       "Sociología",
       "Ciencias Sociales"
     ];
+
+    dropdownList = [
+      "Drama",
+      "Feminismo",
+      "Sociología",
+      "Ciencias Sociales",
+    ];
+
+    currentValue = "Drama";
   }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      // floatingActionButton: Row(
-      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //   children: <Widget>[
-      //     IconButton(
-      //       icon: FaIcon(FontAwesomeIcons.arrowLeft, color: Colors.white),
-      //       onPressed: () => _backPage(context),
-      //     ),
-      //     Padding(
-      //       padding: const EdgeInsets.only(right: 10.0, top: 10.0),
-      //       child: Image.asset("assets/whiteLogo.png", width: 50),
-      //     )
-      //   ],
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
-      body: Column(
-        children: <Widget>[
-          RedArchHeader(
-            title: "Lidia Soles"
-          ),
-
-          SizedBox(height: 40),
-          MediumText(
-            text: "Intereses",
-          ),
-          SizedBox(height: 14),
-          Expanded(
-            child: _interestsList(size),
-          )
-        ]
+      floatingActionButton: IconButton(
+        icon: FaIcon(
+          FontAwesomeIcons.plusCircle,
+          color: Colors.red,
+          size: 50,
+        ),
+        onPressed: _addInterest,
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      body: Column(children: <Widget>[
+        RedArchHeader(title: "Lidia Soles"),
+        SizedBox(height: 40),
+        MediumText(
+          text: "Intereses",
+        ),
+        SizedBox(height: 14),
+        Expanded(
+          child: _interestsList(size),
+        )
+      ]),
     );
   }
 
@@ -77,6 +78,53 @@ class _EditProfilePageState extends State<EditProfilePage> {
       Navigator.of(context).pop();
     });
   }
+
+  void _addInterest() async {
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Center(
+            child: SmallText(text: "Agregar"),
+          ),
+          content: StatefulBuilder(
+            builder: (BuildContext context, StateSetter setState) {
+              return DropdownButton(
+                icon: Padding(
+                  padding: EdgeInsets.only(bottom: 5),
+                  child: FaIcon(FontAwesomeIcons.caretDown)
+                ),
+                underline: Container(
+                  height: 2,
+                  color: Colors.deepPurpleAccent,
+                ),
+                value: currentValue,
+                onChanged: (String? newValue) {
+                  setState(() {
+                    currentValue = newValue;
+                  });
+                },
+                items: dropdownList!.map<DropdownMenuItem<String>>((valueItem) {
+                  return DropdownMenuItem<String>(
+                    value: valueItem,
+                    child: SmallText(text: valueItem)
+                  );
+                }).toList(),
+              );
+            },
+          ),
+          actions: <Widget>[
+            RoundedRedButton(
+              child: SmallText(text: "Guardar", color: Colors.white),
+              onPressed: _saveInterest
+            )
+          ],
+        );
+      }
+    );
+  }
+
+  void _saveInterest() {}
 
   Future<bool> _confirmDismiss(int id) async {
     final response = await showDialog(
@@ -94,15 +142,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
               )
             ],
           ),
-          content: SmallText(
-            text: "Desea eliminar este item?"
-          ),
+          content: SmallText(text: "Desea eliminar este item?"),
           actions: <Widget>[
             RoundedRedButton(
-              child: SmallText(
-                text: "Eliminar",
-                color: Colors.white
-              ),
+              child: SmallText(text: "Eliminar", color: Colors.white),
               onPressed: () => _deleteInterest(id)
             ),
           ],
@@ -123,22 +166,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
         return Container(
           width: size.width,
           decoration: BoxDecoration(
-            border: Border(
-              top: BorderSide(color: Colors.grey, width: 0.5),
-              bottom: (idx == (interestList!.length - 1))
-              ? BorderSide(color: Colors.grey, width: 0.5)
-              : BorderSide.none,
-            )
-          ),
+              border: Border(
+            top: BorderSide(color: Colors.grey, width: 0.5),
+            bottom: (idx == (interestList!.length - 1))
+                ? BorderSide(color: Colors.grey, width: 0.5)
+                : BorderSide.none,
+          )),
           child: Dismissible(
             key: Key("${interestList?[idx]}"),
-            confirmDismiss: (DismissDirection direction) => _confirmDismiss(idx),
+            confirmDismiss: (DismissDirection direction) =>
+                _confirmDismiss(idx),
             child: ListTile(
               title: Center(
-                child: SmallText(
-                  text: "${interestList?[idx]}",
-                  color: Colors.red
-                ),
+                child:
+                    SmallText(text: "${interestList?[idx]}", color: Colors.red),
               ),
             ),
             background: _slideRightBackground(),
@@ -203,5 +244,3 @@ class _EditProfilePageState extends State<EditProfilePage> {
     ),
   );
 }
-
-
