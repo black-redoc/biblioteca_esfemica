@@ -15,7 +15,7 @@ class EditProfilePage extends StatefulWidget {
 class _EditProfilePageState extends State<EditProfilePage> {
   List<String>? interestList;
   List<String>? dropdownList;
-  String? currentValue; //  ="Drama";
+  String? currentValue;
 
   @override
   void initState() {
