@@ -18,7 +18,7 @@ class SmallText extends StatelessWidget {
         this.text!,
         style: TextStyle(
           color: this.color,
-          fontSize: 20,
+          fontSize: 14,
           fontWeight: this.fontWeight
         )
       ),
