@@ -18,7 +18,7 @@ class MediumText extends StatelessWidget {
         this.text!,
         style: TextStyle(
           color: this.color,
-          fontSize: 25,
+          fontSize: 20,
           fontWeight: this.fontWeight
         )
       ),

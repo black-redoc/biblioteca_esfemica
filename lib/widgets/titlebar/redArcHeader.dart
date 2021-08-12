@@ -1,3 +1,4 @@
+import 'package:biblioteca_esfemica/widgets/circleAvatar/circleAvatarPlaceholder.dart';
 import 'package:biblioteca_esfemica/widgets/clippers/arcClipper.dart';
 import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
 import 'package:flutter/material.dart';
@@ -52,11 +53,14 @@ class RedArchHeader extends StatelessWidget {
             bottom: 0,
             right: 0,
             left: 0,
-            child: CircleAvatar(
-              radius: 120,
-              backgroundImage: NetworkImage(
-                this.imageUrl ?? "https://images.pexels.com/photos/712521/pexels-photo-712521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-            ),),
+            child: CircleAvatarPlaceHolder(
+              image: 
+                this.imageUrl ?? "https://images.pexels.com/photos/712521/"
+                "pexels-photo-712521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+              ,
+              placeholder: "assets/loading-circle.gif",
+              padding: 90,
+            ),
           )
         ],
       ),
