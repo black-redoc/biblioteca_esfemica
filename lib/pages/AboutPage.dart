@@ -1,5 +1,6 @@
 import 'package:biblioteca_esfemica/data/aboutDataSource.dart';
 import 'package:biblioteca_esfemica/data/teamDataSource.dart';
+import 'package:biblioteca_esfemica/widgets/circleAvatar/circleAvatarPlaceholder.dart';
 import 'package:biblioteca_esfemica/widgets/texts/mediumText.dart';
 import 'package:biblioteca_esfemica/widgets/texts/paragraph.dart';
 import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
@@ -102,9 +103,12 @@ class AboutPage extends StatelessWidget {
       widgets.add(
         Column(
           children: <Widget>[
-            CircleAvatar(
-              backgroundImage: AssetImage(itemTeam.imageUrl),
-              radius: 120,
+            CircleAvatarPlaceHolder(
+              image: itemTeam.imageUrl,
+              placeholder: "assets/loading-circle.gif",
+              padding: 80,
+              // backgroundImage: AssetImage(itemTeam.imageUrl),
+              // radius: 120,
             ),
             MediumText(
               text: itemTeam.completeName,
