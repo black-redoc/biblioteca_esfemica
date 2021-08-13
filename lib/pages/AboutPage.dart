@@ -107,8 +107,6 @@ class AboutPage extends StatelessWidget {
               image: itemTeam.imageUrl,
               placeholder: "assets/loading-circle.gif",
               padding: 80,
-              // backgroundImage: AssetImage(itemTeam.imageUrl),
-              // radius: 120,
             ),
             MediumText(
               text: itemTeam.completeName,
