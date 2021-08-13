@@ -151,7 +151,20 @@ class _LibraryPageState extends State<LibraryPage> {
       itemBuilder: (BuildContext context, int index) {
         final bookItem = books?[index];
         final images = bookItem?.books
-            ?.map((e) => Image.network("${e.image}"))
+            ?.map((e) => Image.network(
+              "${e.image}",
+              loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                if (loadingProgress == null) return child;
+                return Center(
+                  child: CircularProgressIndicator(
+                    color: Colors.black,
+                    value: loadingProgress.expectedTotalBytes != null ?
+                    (loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1))
+                    : null,
+                  )
+                );
+              },
+            ))
             .toList();
 
         return Padding(
@@ -174,7 +187,7 @@ class _LibraryPageState extends State<LibraryPage> {
                 options: CarouselOptions(
                   aspectRatio: 16 / 9,
                   viewportFraction: 0.4,
-                  initialPage: 0,
+                  initialPage: 1,
                   enableInfiniteScroll: false,
                   autoPlay: true,
                   autoPlayInterval: Duration(seconds: 3),
