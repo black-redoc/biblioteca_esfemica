@@ -2,6 +2,7 @@ import 'package:biblioteca_esfemica/data/bookDataSource.dart';
 import 'package:biblioteca_esfemica/usecases/conversor.dart';
 import 'package:biblioteca_esfemica/widgets/bookList/bookListItem.dart';
 import 'package:biblioteca_esfemica/widgets/buttons/circularButton.dart';
+import 'package:biblioteca_esfemica/widgets/circleAvatar/circleAvatarPlaceholder.dart';
 import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -213,9 +214,10 @@ class _ProfilePageState extends State<ProfilePage>
         left: 50,
         right: 50,
         top: 60,
-        child: CircleAvatar(
-          backgroundImage: AssetImage("assets/director.jpg"),
-          radius: 100,
+        child: CircleAvatarPlaceHolder(
+          image: "https://images.pexels.com/photos/712521/pexels-photo-712521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+          placeholder: "assets/loading-circle.gif",
+          padding: 50,
         )
       ),
       Positioned(
