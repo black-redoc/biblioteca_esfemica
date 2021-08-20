@@ -14,7 +14,7 @@ class PurpleSearchBar extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final borderSize = 50.0;
     return Container(
-      height: 250,
+      height: 210,
       width: size.width,
       decoration: BoxDecoration(
         color: Colors.purple,
