@@ -12,7 +12,7 @@ class RedTitleBar extends StatelessWidget {
     return Container(
       height: 125,
       padding: EdgeInsets.only(
-        left: 30, right: 30, top: 50
+        left: 10, right: 30, top: 50
       ),
       color:Color(0xFFEC2A44),
       child: Row(

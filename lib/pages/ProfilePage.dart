@@ -115,7 +115,7 @@ class _ProfilePageState extends State<ProfilePage>
   }
 
   void _onSettingsButtonPressed() {
-
+    Navigator.of(context).pushNamed("/settingsProfile");
   }
 
   Widget _settigsProfileButton() {
