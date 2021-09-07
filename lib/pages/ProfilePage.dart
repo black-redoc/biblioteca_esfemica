@@ -181,7 +181,7 @@ class _ProfilePageState extends State<ProfilePage>
     final bookProfileStatusList = _bookDataSource!.getBookProfileStatus(0);
 
     return Positioned(
-      top: 440,
+      top: 390,
       right: 20,
       left: 20,
       bottom: 0,
@@ -209,7 +209,7 @@ class _ProfilePageState extends State<ProfilePage>
 
   List<Widget> _header() {
     return [
-      Positioned(child: Container(color: Color(0xFFEC2A44), height: 340)),
+      Positioned(child: Container(color: Color(0xFFEC2A44), height: 300)),
       Positioned(
         left: 50,
         right: 50,
@@ -221,7 +221,7 @@ class _ProfilePageState extends State<ProfilePage>
         )
       ),
       Positioned(
-        top: 280,
+        top: 230,
         left: 50,
         right: 50,
         child: Container(
