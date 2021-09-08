@@ -1,6 +1,8 @@
+import 'package:biblioteca_esfemica/widgets/texts/mediumText.dart';
 import 'package:biblioteca_esfemica/widgets/texts/smallText.dart';
 import 'package:biblioteca_esfemica/widgets/titlebar/redTitleBar.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SettingsProfilePage extends StatefulWidget {
   SettingsProfilePage({Key? key}) : super(key: key);
@@ -29,13 +31,13 @@ class _SettingsProfilePageState extends State<SettingsProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   IconButton(
-                    icon: Icon(
-                      Icons.arrow_back_ios_rounded,
+                    icon: FaIcon(
+                      FontAwesomeIcons.arrowLeft,
                       color: Colors.white
                     ),
                     onPressed: () => Navigator.of(context).pop(),
                   ),
-                  SmallText(text: "Ajustes", color: Colors.white)
+                  MediumText(text: "Ajustes", color: Colors.white)
                 ]
               )
             ),

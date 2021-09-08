@@ -55,6 +55,8 @@ class _ProfilePageState extends State<ProfilePage>
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       floatingActionButton: _floatingActionButtons(),
@@ -64,7 +66,7 @@ class _ProfilePageState extends State<ProfilePage>
         child: Container(
           child: Stack(
             children: <Widget>[
-              ..._header(),
+              ..._header(size.height),
               _body()
             ]
           ),
@@ -142,7 +144,7 @@ class _ProfilePageState extends State<ProfilePage>
     );
   }
 
-  Widget _editProfileButton() { 
+  Widget _editProfileButton() {
     return Positioned(
       top: 10,
       right: 5,
@@ -207,13 +209,13 @@ class _ProfilePageState extends State<ProfilePage>
     );
   }
 
-  List<Widget> _header() {
+  List<Widget> _header(double height) {
     return [
-      Positioned(child: Container(color: Color(0xFFEC2A44), height: 300)),
+      Positioned(child: Container(color: Color(0xFFEC2A44), height: height * 0.47)),
       Positioned(
         left: 50,
         right: 50,
-        top: 60,
+        top: height * 0.06,
         child: CircleAvatarPlaceHolder(
           image: "https://images.pexels.com/photos/712521/pexels-photo-712521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
           placeholder: "assets/loading-circle.gif",
@@ -221,14 +223,14 @@ class _ProfilePageState extends State<ProfilePage>
         )
       ),
       Positioned(
-        top: 230,
+        top: height * 0.39,
         left: 50,
         right: 50,
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(40)
           ),
-          height: 150,
+          height: 110,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[

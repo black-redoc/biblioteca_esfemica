@@ -60,7 +60,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       body: Column(children: <Widget>[
         RedArchHeader(title: "Lidia Soles"),
-        SizedBox(height: 40),
         MediumText(
           text: "Intereses",
         ),
