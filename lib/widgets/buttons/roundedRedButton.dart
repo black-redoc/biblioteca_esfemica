@@ -15,7 +15,7 @@ class RoundedRedButton extends StatelessWidget {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10, horizontal: 50),
       child: ConstrainedBox(
-        constraints: BoxConstraints(minWidth: double.infinity, minHeight: 60),
+        constraints: BoxConstraints(minWidth: double.infinity, minHeight: 40),
         child: ElevatedButton(
           child: child,
           onPressed: onPressed,
