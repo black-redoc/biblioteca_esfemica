@@ -19,7 +19,7 @@ class Paragraph extends StatelessWidget {
         this.content!,
         style: TextStyle(
           color: this.color,
-          fontSize: 20,
+          fontSize: 16,
         ),
         textAlign: TextAlign.justify,
       ),
