@@ -1,4 +1,6 @@
 import 'package:biblioteca_esfemica/data/bookDataSource.dart';
+import 'package:biblioteca_esfemica/domain/BookProfileStatus.dart';
+import 'package:biblioteca_esfemica/pages/BookPage.dart';
 import 'package:biblioteca_esfemica/usecases/conversor.dart';
 import 'package:biblioteca_esfemica/widgets/bookList/bookListItem.dart';
 import 'package:biblioteca_esfemica/widgets/buttons/circularButton.dart';
@@ -194,17 +196,28 @@ class _ProfilePageState extends State<ProfilePage>
           itemCount: bookProfileStatusList.length,
           itemBuilder: (_,i) {
             final item = bookProfileStatusList[i];
-            return Padding(
-              padding: const EdgeInsets.only(bottom: 10.0),
-              child: BookListItem(
-                imagePath: item.image,
-                author: item.author,
-                title: item.title,
-                status: item.status
-              )
+            return GestureDetector(
+              onTap: () => _goToBookDetails(item),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 10.0),
+                child: BookListItem(
+                  imagePath: item.image,
+                  author: item.author,
+                  title: item.title,
+                  status: item.status
+                )
+              ),
             );
           }
         )
+      )
+    );
+  }
+
+  void _goToBookDetails(BookProfileStatus book) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context) => BookPage()
       )
     );
   }
