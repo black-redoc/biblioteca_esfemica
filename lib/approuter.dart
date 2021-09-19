@@ -1,4 +1,5 @@
 import 'package:biblioteca_esfemica/pages/AuthPage.dart';
+import 'package:biblioteca_esfemica/pages/BookPage.dart';
 import 'package:biblioteca_esfemica/pages/EditProfilePage.dart';
 import 'package:biblioteca_esfemica/pages/HomePage.dart';
 import 'package:biblioteca_esfemica/pages/SettingsProfilePage.dart';
@@ -11,7 +12,8 @@ class AppRouter {
     "/signUp": (context) => SignUpPage(),
     "/": (context) => HomePage(),
     "/editProfile": (context) => EditProfilePage(),
-    "/settingsProfile": (context) => SettingsProfilePage()
+    "/settingsProfile": (context) => SettingsProfilePage(),
+    "/book": (context) => BookPage()
   };
 
   static Map<String, WidgetBuilder> get router => _router;
