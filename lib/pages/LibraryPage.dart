@@ -1,4 +1,6 @@
 import 'package:biblioteca_esfemica/data/bookDataSource.dart';
+import 'package:biblioteca_esfemica/domain/Book.dart';
+import 'package:biblioteca_esfemica/pages/BookPage.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:biblioteca_esfemica/widgets/formfields/roundedSearchField.dart';
 import 'package:biblioteca_esfemica/widgets/texts/mediumText.dart';
@@ -143,6 +145,19 @@ class _LibraryPageState extends State<LibraryPage> {
     );
   }
 
+  void _redirectToBookDetailsPage(Book book) {
+    final String bookReleaseDate = "${book.releaseDate?.day}/${book.releaseDate?.month}/${book.releaseDate?.year}";
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (BuildContext context) => BookPage(
+          bookAuthor: book.author,
+          bookImageUrl: book.image,
+          bookDateRelease: bookReleaseDate,
+        )
+      )
+    );
+  }
+
   ListView _buildBookListView() {
     final books = _bookDataSource?.getBookCarousel();
     return ListView.builder(
@@ -151,19 +166,22 @@ class _LibraryPageState extends State<LibraryPage> {
       itemBuilder: (BuildContext context, int index) {
         final bookItem = books?[index];
         final images = bookItem?.books
-            ?.map((e) => Image.network(
-              "${e.image}",
-              loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
-                if (loadingProgress == null) return child;
-                return Center(
-                  child: CircularProgressIndicator(
-                    color: Colors.black,
-                    value: loadingProgress.expectedTotalBytes != null ?
-                    (loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1))
-                    : null,
-                  )
-                );
-              },
+            ?.map((e) => GestureDetector(
+              onTap: () => _redirectToBookDetailsPage(e),
+              child: Image.network(
+                "${e.image}",
+                loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return Center(
+                    child: CircularProgressIndicator(
+                      color: Colors.black,
+                      value: loadingProgress.expectedTotalBytes != null ?
+                      (loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1))
+                      : null,
+                    )
+                  );
+                },
+              ),
             ))
             .toList();
 
