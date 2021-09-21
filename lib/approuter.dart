@@ -2,6 +2,7 @@ import 'package:biblioteca_esfemica/pages/AuthPage.dart';
 import 'package:biblioteca_esfemica/pages/BookPage.dart';
 import 'package:biblioteca_esfemica/pages/EditProfilePage.dart';
 import 'package:biblioteca_esfemica/pages/HomePage.dart';
+import 'package:biblioteca_esfemica/pages/LibrarySearchPage.dart';
 import 'package:biblioteca_esfemica/pages/SettingsProfilePage.dart';
 import 'package:biblioteca_esfemica/pages/SignUpPage.dart';
 import 'package:flutter/material.dart' show WidgetBuilder;
@@ -13,7 +14,8 @@ class AppRouter {
     "/": (context) => HomePage(),
     "/editProfile": (context) => EditProfilePage(),
     "/settingsProfile": (context) => SettingsProfilePage(),
-    "/book": (context) => BookPage()
+    "/book": (context) => BookPage(),
+    "/librarySearch": (context) => LibrarySearchPage()
   };
 
   static Map<String, WidgetBuilder> get router => _router;
