@@ -185,7 +185,7 @@ class _ProfilePageState extends State<ProfilePage>
     final bookProfileStatusList = _bookDataSource!.getBookProfileStatus(0);
 
     return Positioned(
-      top: 390,
+      top: 410,
       right: 20,
       left: 20,
       bottom: 0,
