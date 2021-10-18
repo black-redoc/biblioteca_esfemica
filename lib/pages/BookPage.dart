@@ -49,7 +49,7 @@ class _BookPageState extends State<BookPage> {
   Widget _header(double height, double width) {
     return Container(
       height: height * 0.45,
-      padding: EdgeInsets.only(top: 25),
+      padding: EdgeInsets.only(top: 55),
       width: width,
       child: Column(
         children: <Widget>[
@@ -94,7 +94,7 @@ class _BookPageState extends State<BookPage> {
               FadeInImage.assetNetwork(
                 image: widget.bookImageUrl ?? "https://m.media-amazon.com/images/I/510+j0PdQjL.jpg",
                 placeholder: "assets/loading-circle.gif",
-                height: height * 0.3
+                height: height * 0.26
               )
             ]
           )
