@@ -228,7 +228,7 @@ class _ProfilePageState extends State<ProfilePage>
       Positioned(
         left: 50,
         right: 50,
-        top: height * 0.06,
+        top: height * 0.08,
         child: CircleAvatarPlaceHolder(
           image: "https://images.pexels.com/photos/712521/pexels-photo-712521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
           placeholder: "assets/loading-circle.gif",
